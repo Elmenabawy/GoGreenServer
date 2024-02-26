@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const helmet= require("helmet");
 const session = require("express-session");
+const cors = require('cors');
 const axios = require("axios");
 
 
@@ -53,6 +54,7 @@ app.use("/hello",express.static("public")); //static files (css,html,js,img,..)
 //user middleware(APPLICATION-LEVEL MIDDLEWARE)
 //LOGIN
 app.use(logging);
+app.use(cors());
 
 app.use("/api/Students",studentsRouter);
 app.use("/api/Users",userRouter);
