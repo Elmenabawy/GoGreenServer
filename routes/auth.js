@@ -9,11 +9,17 @@ const bcrypt = require("bcrypt");
 
 router.post("/", validator, async (req, res) => {
   try {
-    let user = await User.findOne({ email: req.body.email }).exec();
-    if (!user) return res.status(400).send("Invalid email or password..");
+    const lowercaseEmail = req.body.email.toLowerCase();
+    let user = await User.findOne({ email: lowercaseEmail }).exec();
+
+    if (!user) {
+      return res.status(400).send("Invalid email or password..");
+    }
 
     const validPswrd = await bcrypt.compare(req.body.password, user.password);
-    if (!validPswrd) return res.status(400).send("Invalid email or password..");
+    if (!validPswrd) {
+      return res.status(400).send("Invalid email or password..");
+    }
 
     // If the user is found and the password is correct, create a session for the user
     req.session.user = user;
@@ -24,7 +30,7 @@ router.post("/", validator, async (req, res) => {
   } catch (err) {
     for (let e in err.errors) {
       console.log(err.errors[e].message);
-      res.status(400).send("bad request..");
+      res.status(400).send("Bad request..");
     }
   }
 });

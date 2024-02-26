@@ -48,7 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(helmet());
 
-app.use("/hello",express.static("public")); //static files (css,html,js,img,..)
+app.use(express.static("public"));// Serving static files from the public directory
 
 
 //user middleware(APPLICATION-LEVEL MIDDLEWARE)
@@ -65,7 +65,7 @@ app.use("/api/package", consumptionRouter);
 
 //app.use(errorMW);
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 50000;
 
 
 
