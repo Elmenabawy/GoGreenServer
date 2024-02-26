@@ -20,7 +20,7 @@ const consumptionRouter = require('./routes/Package');
 
 
 //2) set connection
-mongoose.connect("mongodb://0.0.0.0:27017/iti",{
+mongoose.connect("mongodb+srv://ahhossam68:c2RmScIUYX0H3gsw@cluster0.ihphmxf.mongodb.net/",{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true,
