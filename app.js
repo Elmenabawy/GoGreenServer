@@ -15,6 +15,15 @@ const consumptionRouter = require('./routes/Package');
 
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://cdn.jsdelivr.net");
+    return next();
+});
+app.use((req, res, next) => {
+    res.setHeader("Content-Security-Policy", "connect-src 'self' https://api.weatherapi.com");
+    return next();
+});
+
 // Set up session
 app.use(
     session({
