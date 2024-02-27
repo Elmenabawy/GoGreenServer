@@ -35,23 +35,23 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   phoneNumber:{
-    type : String,
+    type: Number,
     required: true,
   },
   month1:{
-    type: String,
+    type: Number,
     required:true
   },
   month2:{
-    type: String,
+    type: Number,
     required:true
   },
   month3:{
-    type: String,
+    type: Number,
     required:true
   },
   month4:{
-    type: String,
+    type: Number,
     required:true
   }
 });
