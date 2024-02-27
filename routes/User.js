@@ -22,7 +22,7 @@ router.post("/", validator, async (req, res) => {
     });
     await user.save();
 
-    res.redirect('/login');
+    res.redirect('/login.html');
     //send res
     res.status(201).send(user);
   } catch (err) {
