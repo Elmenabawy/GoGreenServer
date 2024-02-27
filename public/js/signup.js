@@ -3,21 +3,26 @@ async function signup() {
     const userNameInput = document.getElementById('userNameInput').value;
     const userMailInput = document.getElementById('userMailInput').value;
     const userPassInput = document.getElementById('userPassInput').value;
-    const userRePassInput = document.getElementById('userRePassInput').value;
+    const userConfPassInput = document.getElementById('userConfPassInput').value;
     const userPhone = document.getElementById('userPhone').value;
-    const userAddress = document.getElementById('userAddress').value;
+    const userAddressInput = document.getElementById('userAddress').value.trim();
+    const userAddress = document.getElementById('userAddress');
+    const isValid = userInputsValidation();
     // const month1 = document.getElementById('month1').value;
     // const month2 = document.getElementById('month2').value;
     // const month3 = document.getElementById('month3').value;
     // const month4 = document.getElementById('month4').value;
     // Basic input validation (you can customize these validation functions)
-
+    if (!isValid) {
+        // Validation failed, do not proceed with signup
+        return;
+    }
     const data = {
         name: userNameInput,
         email: userMailInput,
         password: userPassInput,
         phoneNumber: userPhone,
-        address: userAddress,
+        address: userAddressInput,
     };
 
     try {
@@ -28,7 +33,6 @@ async function signup() {
             },
             body: JSON.stringify(data),
         });
-
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorData.message}`);
@@ -36,8 +40,15 @@ async function signup() {
 
         const result = await response.json();
         // Handle the response from the server
-        console.log(result);
+        
         alert("Signup successful!");
+        location.href = "../home.html";
+
+        // if (response.status === 400) {
+        //     // Handle the 400 error status
+        //     input.classList.remove('is-valid');
+        //     input.classList.add('is-invalid');
+        // }
     } catch (error) {
         console.error('Error:', error);
 
@@ -52,6 +63,7 @@ async function signup() {
             }
         } else {
             // Handle other types of errors
+            // userInputsValidation()
             alert(`Unable to sign up. ${error.message}`);
         }
     }
@@ -75,12 +87,12 @@ function usernameValidation() {
 
 function userEmailAlert() {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return regex.test(userMailInput.value) && userMailInput.value !== "";
+    return regex.test(userMailInput.value) ;
 }
 
 function PhoneNumberValidation(phoneNumber) {
     const regex = /^01\d{9}$/;
-    return regex.test(phoneNumber);
+    return regex.test(userPhone.value) ;
 }
 
 function userPasswordValidation() {
@@ -91,19 +103,27 @@ function userPasswordValidation() {
 function samePasswordCheck() {
     return userConfPassInput.value === userPassInput.value && userConfPassInput.value !== "";
 }
+function addressCheck() {
+    const regex = /^.+$/;
+    return regex.test(userAddress.value.trim());
+}
 
 function userInputsValidation() {
     const validUsername = usernameValidation();
     const validEmail = userEmailAlert();
+    const validPhone = PhoneNumberValidation();
     const validPassword = userPasswordValidation();
     const validSamePassword = samePasswordCheck();
+    const validAddress = addressCheck();
 
     handleValidationResult(validUsername, userNameInput, signUpUserNameErr);
-    handleValidationResult(validEmail, userMailInput, signUpMailErr);
-    handleValidationResult(validPassword, userPassInput, signUpPassErr);
-    handleValidationResult(validSamePassword, userConfPassInput, confPswrdErr);
+    handleValidationResult(validEmail, userMailInput, signUpMailErrMsg);
+    handleValidationResult(validPhone, userPhone);
+    handleValidationResult(validPassword, userPassInput, signUpPassErrMsg);
+    handleValidationResult(validSamePassword, userConfPassInput);
+    handleValidationResult(validAddress, userAddress);
 
-    return validUsername && validEmail && validPassword && validSamePassword;
+    return validUsername && validEmail && validPassword && validSamePassword && validAddress;
 }
 
 function handleValidationResult(isValid, element, errorElement) {

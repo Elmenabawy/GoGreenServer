@@ -1,3 +1,5 @@
+document.getElementById('signInBtn').addEventListener('click', login);
+
 const signInUserMailErr = document.getElementById("signInUserMailErr");
 const signInUserPassErr = document.getElementById("signInUserPassErr");
 const signInBtn = document.getElementById("signInBtn");
