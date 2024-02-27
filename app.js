@@ -12,8 +12,8 @@ const userRouter = require('./routes/User');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
 const consumptionRouter = require('./routes/Package');
-const crypto = require('crypto');
-const nonce = crypto.randomBytes(16).toString('base64');
+// const crypto = require('crypto');
+// const nonce = crypto.randomBytes(16).toString('base64');
 
 
 const app = express();
@@ -49,16 +49,16 @@ mongoose.connect('mongodb+srv://ahhossam68:c2RmScIUYX0H3gsw@cluster0.ihphmxf.mon
 app.use(cors());
 
 // Use helmet to set Content Security Policy
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", 'https://cdn.jsdelivr.net', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', 'https://cdn.jsdelivr.net/npm/apexcharts@3.27.3/dist/apexcharts.min.js'], // Add other script sources as needed
-            styleSrc: ["'self'", '*.bootstrapcdn.com', "'unsafe-inline'", "'nonce-" + nonce + "'"], // Include 'unsafe-inline' cautiously
-            connectSrc: ["'self'", 'https://gogreenserver-1.onrender.com', 'https://api.weatherapi.com'], // Add other connect sources as needed
-        },
-    })
-);
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: ["'self'"],
+//             scriptSrc: ["'self'", 'https://cdn.jsdelivr.net', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', 'https://cdn.jsdelivr.net/npm/apexcharts@3.27.3/dist/apexcharts.min.js'], // Add other script sources as needed
+//             styleSrc: ["'self'", '*.bootstrapcdn.com', "'unsafe-inline'", "'nonce-" + nonce + "'"], // Include 'unsafe-inline' cautiously
+//             connectSrc: ["'self'", 'https://gogreenserver-1.onrender.com', 'https://api.weatherapi.com'], // Add other connect sources as needed
+//         },
+//     })
+// );
 
 
 // Serve static files from the public directory
