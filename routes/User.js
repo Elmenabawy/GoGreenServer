@@ -19,10 +19,6 @@ router.post("/", validator, async (req, res) => {
       password: hashedPswd,
       phoneNumber:req.body.phoneNumber,
       address:req.body.address,
-      month1:req.body.month1,
-      month2:req.body.month2,
-      month3:req.body.month3,
-      month4:req.body.month4
     });
     await user.save();
 

@@ -6,10 +6,10 @@ async function signup() {
     const userRePassInput = document.getElementById('userRePassInput').value;
     const userPhone = document.getElementById('userPhone').value;
     const userAddress = document.getElementById('userAddress').value;
-    const month1 = document.getElementById('month1').value;
-    const month2 = document.getElementById('month2').value;
-    const month3 = document.getElementById('month3').value;
-    const month4 = document.getElementById('month4').value;
+    // const month1 = document.getElementById('month1').value;
+    // const month2 = document.getElementById('month2').value;
+    // const month3 = document.getElementById('month3').value;
+    // const month4 = document.getElementById('month4').value;
     // Basic input validation (you can customize these validation functions)
 
     const data = {
@@ -18,10 +18,6 @@ async function signup() {
         password: userPassInput,
         phoneNumber: userPhone,
         address: userAddress,
-        month1: month1,
-        month2: month2,
-        month3: month3,
-        month4: month4
     };
 
     try {

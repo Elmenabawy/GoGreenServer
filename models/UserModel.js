@@ -37,22 +37,6 @@ const userSchema = new mongoose.Schema({
   phoneNumber:{
     type: Number,
     required: true,
-  },
-  month1:{
-    type: Number,
-    required:true
-  },
-  month2:{
-    type: Number,
-    required:true
-  },
-  month3:{
-    type: Number,
-    required:true
-  },
-  month4:{
-    type: Number,
-    required:true
   }
 });
 userSchema.virtual('packages', {
