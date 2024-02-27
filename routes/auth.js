@@ -25,7 +25,6 @@ router.post("/", validator, async (req, res) => {
     req.session.user = user;
     req.session.isAuthenticated = true;
 
-    res.redirect('/home.html');
     //send res
     res.status(200).send(user);
   } catch (err) {
