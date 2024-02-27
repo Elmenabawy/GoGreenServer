@@ -22,6 +22,7 @@ router.post("/", validator, async (req, res) => {
     });
     await user.save();
 
+    res.redirect('/login');
     //send res
     res.status(201).send(user);
   } catch (err) {
