@@ -15,14 +15,8 @@ const consumptionRouter = require('./routes/Package');
 
 const app = express();
 
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "script-src 'self' https://cdn.jsdelivr.net");
-    return next();
-});
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "connect-src 'self' https://api.weatherapi.com");
-    return next();
-});
+
+
 
 // Set up session
 app.use(
@@ -56,11 +50,13 @@ app.use(
     helmet.contentSecurityPolicy({
         directives: {
             defaultSrc: ["'self'"],
-            connectSrc: ["'self'", 'https://gogreenserver-1.onrender.com'],
-            // Add other directives as needed based on your application's requirements
+            scriptSrc: ["'self'", 'https://cdn.jsdelivr.net', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', 'https://cdn.jsdelivr.net/npm/apexcharts@3.27.3/dist/apexcharts.min.js'], // Add other script sources as needed
+            styleSrc: ["'self'", '*.bootstrapcdn.com', "'unsafe-inline'"], // Include 'unsafe-inline' cautiously
+            connectSrc: ["'self'", 'https://gogreenserver-1.onrender.com', 'https://api.weatherapi.com'], // Add other connect sources as needed
         },
     })
 );
+
 
 // Serve static files from the public directory
 app.use(express.static('public'));
