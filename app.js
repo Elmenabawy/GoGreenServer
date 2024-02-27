@@ -73,7 +73,7 @@ app.use('/api/package', consumptionRouter);
 
 // Authentication middleware to protect routes
 const authenticateUser = (req, res, next) => {
-    if (req.session && req.session.user) {
+    if (req.session) {
         // User is authenticated, allow access to the route
         next();
     } else {
