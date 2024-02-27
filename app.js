@@ -46,7 +46,15 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            connectSrc: ["'self'", 'https://gogreenserver-1.onrender.com'],
+            // Add other directives as needed based on your application's requirements
+        },
+    })
+);
 
 app.use(express.static("public"));// Serving static files from the public directory
 
@@ -64,6 +72,10 @@ app.use("/api/package", consumptionRouter);
 
 
 //app.use(errorMW);
+// Add route to serve index.html for the root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const port = process.env.PORT || 50000;
 

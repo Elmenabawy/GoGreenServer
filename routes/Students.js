@@ -4,7 +4,7 @@ const studentsController=require("../controllers/StudentControllerDB");
 const stdValidator=require("../middlewares/StudentValidatorMW");
 const auth=require("../middlewares/AuthMWPermission");
 router.all("/", (req, res,nxt) => {
- 
+
     console.log("request recieved on Students collection...")
     nxt();
 

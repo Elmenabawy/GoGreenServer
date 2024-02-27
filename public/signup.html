@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="shortcut icon" type="image/png" href="Assets/solar-panels_4114975.png">
+    <title>Registration</title>
+</head>
+
+<body>
+    <!--------------- Main container --------------->
+    <div class="container rounded-3 d-flex justify-content-center align-items-center min-vh-100 ">
+        <!--------------- login box --------------->
+        <div class="row border rounded-3 p-3 bg-white shadow box-area">
+            <!--------------- left box --------------->
+            <div class="col-md-6 rounded-3 d-flex justify-content-center align-items-center flex-column left-box">
+                <div class="featured-image mb-3">
+                    <img src="Assets/Personal settings.gif" alt="login gif" class="img-fluid" style="Width :250px">
+                </div>
+                <p class="fs-4">Be Verified</p>
+                <small>Lorem ipsum dolor sit amet consectetur.</small>
+            </div>
+            <!--------------- right box --------------->
+            <div class="col-md-6 right-box">
+                <div id="imageTest"> </div>
+                <div class="row align-items-center">
+                    <div class="header-text mb-4">
+                        <p class="fs-3">Registrate here</p>
+                        <hr class="w-50">
+                        <p>We are happy to have you in our family</p>
+                    </div>
+                    <small class="usr-name-err-msg text-danger mb-1 d-none" id="signUpUserNameErr">At least 3 chars starting with uppercase letter, no symbols*</small>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light form fs-6" placeholder="User name"
+                            id="userNameInput">
+                    </div>
+                    <small class="mail-err-msg text-danger mb-1 d-none" id="signUpMailErrMsg">Enter email address*</small>
+                    <small class="exist-mail-err-msg text-danger mb-1 d-none" id="ExistsignUpMailErrMsg">Email is already taken*</small>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light form fs-6"
+                            placeholder="Email address" id="userMailInput">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="tel" class="form-control form-control-lg bg-light form fs-6 me-1" placeholder="Phone Number"
+                            id="userPhone">
+                    </div>
+                    <small class="pass-err-msg text-danger mb-1 d-none"id="signUpPassErrMsg">you must strenth your password (8-40) characters*</small>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control form-control-lg bg-light form fs-6"
+                            placeholder="Password" id="userPassInput">
+                    </div>
+                    <small class="repass-err-msg text-danger mb-1 d-none" id="confPswrdErrMsg">passwords are not the same*</small>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control form-control-lg bg-light form fs-6" placeholder="Confirm Password"
+                            id="userRePassInput">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light form fs-6" placeholder="Address"
+                            id="userAddress">
+                    </div>                  
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="month1">Month 1:</label>
+                            <input type="number" class="form-control" id="month1" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="month2">Month 2:</label>
+                            <input type="number" class="form-control" id="month2" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="month3">Month 3:</label>
+                            <input type="number" class="form-control" id="month3" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="month4">Month 4:</label>
+                            <input type="number" class="form-control" id="month4" required>
+                        </div>
+                    </div>
+                    <a href="index.html" class="my-3"><small>Login?</small></a>
+                    
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="signUpBtn">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+    <script src="js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js" ></script>
+    <script src="js/intlTelInput.min.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+
+</html>
