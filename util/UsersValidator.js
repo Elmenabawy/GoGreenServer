@@ -17,7 +17,7 @@ const schema={
             "minLength":5
         },
         "phoneNumber": {
-            "type": "string",
+          "type": "number",
             "pattern": "^[0-9]{11}$"
           },
     "address": {
@@ -25,21 +25,17 @@ const schema={
       "pattern": "^[a-zA-Z0-9\\s,#-]*$"
     },
     "month1": {
-        "type": "string",
-        "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December|january|february|march|april|may|june|july|august|september|october|november|december)$"
+      "type": "number",
       },
       
     "month2": {
-        "type": "string",
-        "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December|january|february|march|april|may|june|july|august|september|october|november|december)$"
+      "type": "number",
       },
       "month3": {
-          "type": "string",
-          "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December|january|february|march|april|may|june|july|august|september|october|november|december)$"
+        "type": "number",
         },
         "month4": {
-            "type": "string",
-            "pattern": "^(January|February|March|April|May|June|July|August|September|October|November|December|january|february|march|april|may|june|july|august|september|october|november|december)$"
+            "type": "number",
           },
     },
     "required":["name","password","email","phoneNumber","address","month1","month2","month3","month4"]
