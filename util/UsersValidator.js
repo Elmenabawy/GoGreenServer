@@ -25,17 +25,24 @@ const schema={
       "pattern": "^[a-zA-Z0-9\\s,#-]*$"
     },
     "month1": {
-      "type": "number",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
       },
-      
     "month2": {
-      "type": "number",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
       },
       "month3": {
-        "type": "number",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 6
         },
         "month4": {
-            "type": "number",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
           },
     },
     "required":["name","password","email","phoneNumber","address","month1","month2","month3","month4"]
