@@ -17,7 +17,7 @@ const schema={
             "minLength":5
         },
         "phoneNumber": {
-            "type": "integer",
+          "type": "string",
             "pattern": "^[0-9]{11}$"
           },
         "address": {
