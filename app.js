@@ -91,7 +91,7 @@ const authenticateUser = (req, res, next) => {
 };
 
 // Example route that requires authentication
-app.get('/home.html', authenticateUser, (req, res) => {
+app.get('/auth', authenticateUser, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
