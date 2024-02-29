@@ -54,3 +54,4 @@ function displayTodayWeather() {
     wind.innerHTML = responseData.current.wind_kph;
     compass.innerHTML = responseData.current.wind_dir;
 }
+
