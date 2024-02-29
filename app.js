@@ -96,7 +96,7 @@ app.get('/home.html', authenticateUser, (req, res) => {
 });
 
 // Route to serve index.html for the root path
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
